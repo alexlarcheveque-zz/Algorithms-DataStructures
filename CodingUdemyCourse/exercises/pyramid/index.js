@@ -14,6 +14,7 @@
 //       ' ### '
 //       '#####'
 
+//Solution: Nested for-loop that finds middle index, then expands affected "#" area after iteration of each row
 function pyramid(n) {
   const maxRow = n - 1;
   const maxCol = 2 * (n - 1);

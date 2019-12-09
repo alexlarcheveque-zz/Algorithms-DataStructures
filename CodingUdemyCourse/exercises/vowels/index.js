@@ -7,6 +7,39 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+// //Solution: Lower case string, then add a counter if we see a vowel
+// function vowels(str) {
+//   let counter = 0;
+
+//   for (let character of str.toLowerCase()) {
+//     if (
+//       character == "a" ||
+//       character == "e" ||
+//       character == "i" ||
+//       character == "o" ||
+//       character == "u"
+//     ) {
+//       counter++;
+//     }
+//   }
+//   return counter;
+// }
 
 module.exports = vowels;
+
+// //Solution 2: Lower case string, uses "include" helper method to check if string includes vowels
+function vowels(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let counter = 0;
+
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char)) counter++;
+  }
+  return counter;
+}
+
+// //Solution 3: Using RegExp
+// function vowels(str) {
+//   const matches = str.match(/[aeiou]/gi); //g: iterates through whole string, //i: case insensitive
+//   return matches ? matches.length : 0;
+// }
