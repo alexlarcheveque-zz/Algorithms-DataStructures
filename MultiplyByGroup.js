@@ -6,12 +6,12 @@ var MultiplyByGroup = function(arr, groupSize) {
   if (arr.length % groupSize !== 0) return answer;
 
   for (let i = 0; i < arr.length; i++) {
+    //checks if counter is equal to groupSize, then resets counter and product variables
     if (counter === groupSize) {
       answer.push(product);
       counter = 0;
       product = 1;
     }
-
     product *= arr[i];
     counter++;
   }
