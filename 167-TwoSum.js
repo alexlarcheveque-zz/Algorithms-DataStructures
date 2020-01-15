@@ -24,3 +24,44 @@ var twoSum = function(numbers, target) {
 };
 
 twoSum([2, 7, 11, 15], 9);
+
+//Using Single Array, and Finding if Array includes the Target - Num[i]
+//Time: O(n^2) because .includes() is O(n)
+//Space: O(1)
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    if (
+      nums.includes(target - nums[i]) &&
+      nums.indexOf(target - nums[i]) !== i
+    ) {
+      return [i, nums.indexOf(target - nums[i])];
+    }
+  }
+};
+
+//Time: O(n) --> Map search is constant time, O(1)
+//Space: O(n) --> Hash map increases with n
+//
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+  let myMap = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    myMap[nums[i]] = i;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    if (myMap[target - nums[i]] && myMap[target - nums[i]] !== i) {
+      return [i, myMap[target - nums[i]]];
+    }
+  }
+};
