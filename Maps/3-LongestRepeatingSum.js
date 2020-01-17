@@ -35,3 +35,28 @@ var lengthOfLongestSubstring = function(s) {
   }
   return max;
 };
+
+//Run Time --> O(n)
+//Space --> O(n)
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+  let arr = s.split("");
+
+  let i = 0;
+  let j = 0;
+  let ans = 0;
+  let myMap = new Map();
+
+  while (i < arr.length && j < arr.length) {
+    if (!myMap.has(arr[j])) {
+      myMap.set(arr[j++], 1);
+      ans = Math.max(ans, j - i);
+    } else {
+      myMap.delete(arr[i++]);
+    }
+  }
+  return ans;
+};
