@@ -1,7 +1,6 @@
-/**
- * @param {number[][]} grid
- * @return {number}
- */
+//Time --> O(n^2)
+//Space --> O(n)
+
 var orangesRotting = function(grid) {
   let queue = [];
   let minutes = 0;
